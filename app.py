@@ -3,8 +3,6 @@ from flask import Flask, render_template, request,jsonify
 from flask_cors import CORS,cross_origin
 import math
 import pickle
-from sklearn.preprocessing import StandardScaler 
-
 app = Flask(__name__) # initializing a flask app
 
 # --------------------------------------------------------------------------------------------------------------------------
@@ -22,16 +20,18 @@ def index():
             # reading the inputs given by the user
             gre_score=float(request.form['gre_score'])
             toefl_score = float(request.form['toefl_score'])
-            university_rating = float(request.form['university_rating'])
-            sop = float(request.form['sop'])
             lor = float(request.form['lor'])
             cgpa = float(request.form['cgpa'])
+            university_rating = float(request.form['university_rating'])
+            print(float(request.form['university_rating']))
+            print(float(request.form['sop']))
+            sop = float(request.form['sop'])
             is_research = request.form['research']
             if(is_research=='yes'):
                 research=1
             else:
                 research=0
-
+            print("hhi")
             X=[]
             X.append(gre_score)
             X.append(toefl_score)
@@ -43,11 +43,11 @@ def index():
             Y=[]
             Y.append(X)
 
+            print(Y)
             filename = 'finalized_model.pickle'
             loaded_model = pickle.load(open(filename, 'rb')) # loading the model file from the storage
 
             # predictions using the loaded model file
-            scaler =StandardScaler()
             prediction=loaded_model.predict(Y) # not correct
             
             print('prediction is', prediction)
