@@ -1,0 +1,20 @@
+body{
+    background-image: url("bg.png");
+}
+
+.content{
+    background-color: white;
+    padding: 3em;
+    color: grey;
+    box-shadow: 5px 2px 8px rgb(154, 152, 152);
+    border-radius: 0.5em;
+    margin: 5em auto;
+    width: 70%;
+    text-align: center;
+}
+
+input,select{
+    margin: 0.5em;
+    width: 100%;
+}
+
