@@ -23,15 +23,12 @@ def index():
             lor = float(request.form['lor'])
             cgpa = float(request.form['cgpa'])
             university_rating = float(request.form['university_rating'])
-            print(float(request.form['university_rating']))
-            print(float(request.form['sop']))
             sop = float(request.form['sop'])
             is_research = request.form['research']
             if(is_research=='yes'):
                 research=1
             else:
                 research=0
-            print("hhi")
             X=[]
             X.append(gre_score)
             X.append(toefl_score)
@@ -43,12 +40,11 @@ def index():
             Y=[]
             Y.append(X)
 
-            print(Y)
             filename = 'finalized_model.pickle'
             loaded_model = pickle.load(open(filename, 'rb')) # loading the model file from the storage
-
+            loaded_standaradization = pickle.load(open("standardization.pickle",'rb'))
             # predictions using the loaded model file
-            prediction=loaded_model.predict(Y) # not correct
+            prediction=loaded_model.predict(loaded_standaradization.transform(Y)) # not correct
             
             print('prediction is', prediction)
             
