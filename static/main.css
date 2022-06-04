@@ -3,9 +3,9 @@ body{
 }
 
 .content{
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     padding: 3em;
-    color: grey;
+    color: black;
     box-shadow: 5px 2px 8px rgb(154, 152, 152);
     border-radius: 0.5em;
     margin: 5em auto;
