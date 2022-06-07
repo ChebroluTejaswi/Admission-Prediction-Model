@@ -49,7 +49,7 @@ def index():
             print('prediction is', prediction)
             
             # showing the prediction results in a UI
-            return render_template('results.html',prediction=round(100* prediction[0][0]))
+            return render_template('results.html',prediction=round(100* prediction[0]))
 
         except Exception as e:
             print('The Exception message is: ',e)
